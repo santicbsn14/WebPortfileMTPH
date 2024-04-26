@@ -1,0 +1,87 @@
+.nav-link {
+    font-size: 20px;
+    color: black;
+}
+.container-fluid {
+    margin-left: 20px;
+  }
+  .navbar {
+    width: auto !important;
+  }
+  img {
+    margin-right: 0 !important;
+  }
+  .navbar-nav {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+  }
+  .submenu {
+    position: absolute;
+    top: 106px;
+    left: 180px; /* Ajusta la posición a la izquierda */
+    display: none;
+    z-index: 1;
+  }
+  
+  .navbar-nav .nav-item .submenu {
+    display: block; /* Muestra el submenu cuando se hace clic */
+  }
+  
+  .submenu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .submenu ul li {
+    margin-left: 0;
+    padding: 10px;
+    position: relative; /* Agregamos posición relativa para poder posicionar el redondel */
+  }
+  .submenu ul li::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: black; /* Color blanco */
+    border-radius: 50%; /* Para hacerlo redondo */
+    position: absolute;
+    left: -20px; /* Ajusta la posición del redondel */
+    top: 50%; /* Lo centra verticalmente */
+    transform: translateY(-50%); /* Ajusta verticalmente */
+  }
+  .submenuWorkshops {
+    position: absolute;
+    top: 58px;
+    left: 180px; /* Ajusta la posición a la izquierda */
+    display: none;
+    z-index: 1;
+  }
+  
+  .navbar-nav .nav-item .submenuWorkshops {
+    display: block; /* Muestra el submenu cuando se hace clic */
+  }
+  
+  .submenuWorkshops ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .submenuWorkshops ul li {
+    margin-left: 0;
+    padding: 10px;
+    position: relative; /* Agregamos posición relativa para poder posicionar el redondel */
+  }
+  .submenuWorkshops ul li::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: black; /* Color blanco */
+    border-radius: 50%; /* Para hacerlo redondo */
+    position: absolute;
+    left: -20px; /* Ajusta la posición del redondel */
+    top: 50%; /* Lo centra verticalmente */
+    transform: translateY(-50%); /* Ajusta verticalmente */
+  }
