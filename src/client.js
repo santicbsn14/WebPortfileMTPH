@@ -18,12 +18,11 @@ export async function getProjects() {
   return projects
 }
 
-
 export async function getProjectById(id) {
   
     const project = await client.getDocument(id)
     const imagenesRefs = project.imagenes.map(imagen => imagen.asset._ref)
-    console.log(project)
+    
     return {
       title: project.title,
       imageFiles: project.newsDatetime,
@@ -36,6 +35,44 @@ export async function getProjectById(id) {
   }
 }
 
+export async function getProjectByNav(title) {
+  
+  const project = await client.fetch(`*[_type == "projects" && title match "${title}"][0]{
+    title,
+    description,
+    "imageFiles": imagefiles[]->{_id}, // Obtenemos solo el _id de cada imagen
+  }`);
+  if (!project) {
+    // Si no se encontraron proyectos, devolver un objeto vacío o null
+    return null;
+  }
+  
+  
+  const imagenes = await Promise.all(project.imageFiles.map(async (image) => {
+    
+    const img = await client.getDocument(image._id);
+    
+    return img.imageFile.asset._ref;
+  }));
+  
+  return{
+    title:project.title,
+    description:project.description,
+    imagenes:imagenes
+  }
+}
+
+export async function getWorkshopByNav(title){
+  const workshops = await client.fetch(`*[_type == "workshops" && title match "${title}"][0]`)
+  
+  return workshops
+}
+
+export async function getWorkshops() {
+  const workshops = await client.fetch('*[_type == "workshops"]')
+  
+  return workshops
+}
 
 
 const builder = imageUrlBuilder(client)

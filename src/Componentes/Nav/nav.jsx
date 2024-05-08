@@ -1,12 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './nav.css'
 import { Link, useLocation } from 'react-router-dom';
+import { getWorkshops, getProjects } from "../../client";
 
 function Nav() {
-  
   const location = useLocation();
   const isProjectsRoute = location.pathname === '/projects';
-  const isWorkshopsRoute= location.pathname === '/workshops';
+  const isWorkshopsRoute = location.pathname === '/workshops';
+
+  const [workshops, setWorkshops] = useState([]);
+  const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    // Obtener workshops y proyectos al montar el componente
+    getWorkshops().then(data => setWorkshops(data));
+    getProjects().then(data => setProjects(data));
+  }, []);
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', width: 'max-content', marginLeft:'0px' }}>
@@ -29,9 +38,9 @@ function Nav() {
                   {isWorkshopsRoute && (
                     <div className="submenuWorkshops">
                       <ul>
-                        <li><Link to='/workshops' style={{color:'black'}}>Taller de Fotografía Creativa</Link></li>
-                        <li><Link to='/workshops' style={{color:'black'}}>Taller de Escritura Creativa</Link></li>
-                        <li><Link to='/workshops' style={{color:'black'}}>Taller de Expresión Artística</Link></li>
+                        {workshops.map(workshop => (
+                          <li key={workshop.id}><Link to={`/workshops/${encodeURIComponent(workshop.title)}`} style={{color:'black'}}>{workshop.title}</Link></li>
+                        ))}
                       </ul>
                     </div>
                   )}
@@ -43,9 +52,9 @@ function Nav() {
                   {isProjectsRoute && (
                     <div className="submenu">
                       <ul>
-                        <li><Link to='/projects/subproject1' style={{color:'black'}}>La flor marite</Link></li>
-                        <li><Link to='/projects/subproject2' style={{color:'black'}}>Pepe</Link></li>
-                        <li><Link to='/projects/subproject3' style={{color:'black'}}>Una carlotita y dos teresas</Link></li>
+                        {projects.map(project => (
+                          <li key={project.id}><Link to={`/projects/${encodeURIComponent(project.title)}`} style={{color:'black'}}>{project.title}</Link></li>
+                        ))}
                       </ul>
                     </div>
                   )}
