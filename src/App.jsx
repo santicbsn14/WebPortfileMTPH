@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import './App.css'
-import Home from './Componentes/home'
+import Home from './Componentes/Home/home'
 import ProjectsContainer from './Componentes/Projects/projectsContainer'
 import Statement from './Componentes/statement'
 import Bio from './Componentes/bio'
@@ -12,7 +12,7 @@ import WorkshopsContainer from './Componentes/Workshops/workshopsContainer'
 function App() {
 
   return (
-    <div >
+    <div style={{width:'100%'}}>
       <BrowserRouter>
       <Nav/>
       <Routes>

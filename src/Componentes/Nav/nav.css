@@ -85,3 +85,10 @@
     top: 50%; /* Lo centra verticalmente */
     transform: translateY(-50%); /* Ajusta verticalmente */
   }
+
+  
+  @media (max-width:409px){
+  .navbar-toggler{
+    margin-top: -130px;
+  }
+  }

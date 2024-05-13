@@ -1,0 +1,29 @@
+@media (min-width:909px){
+    .container-workshop{
+        width: max-content;
+        margin: auto;
+        margin-right: 50px;
+    }
+    .container-workshop div{
+        max-width: 300px;
+    }
+    .container-workshop div p{
+        margin-right: 0px;
+        overflow-wrap: break-word;
+    }
+  }
+  @media (max-width:409px){
+    .container-workshop{
+        width: 409px;
+        margin: auto;
+        margin-top: 260px;
+        margin-left: -600px;
+    }
+    .container-workshop div{
+        max-width: 300px;
+    }
+    .container-workshop div p{
+        margin-right: 0px;
+        overflow-wrap: break-word;
+    }
+  }

@@ -7,7 +7,7 @@ import {faFacebook,faYoutube, faInstagram, faWhatsapp} from  '@fortawesome/free-
 function Contact(){
 
     const iconStyle = {
-        fontSize: "4rem",
+        fontSize: "1rem",
         padding : "1px",
         color: 'black'
       };

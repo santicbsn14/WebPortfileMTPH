@@ -75,29 +75,31 @@ return (
       {isLoading ? (
         <div><Loader /></div> 
       ) : (
-        <>
-          {project && (
-            <div
-              style={{
-                width: '500px',
-                height: '300px',
-                textAlign: 'center',
-                backgroundColor: '#e4e6ea',
-                padding: '10px',
-                borderRadius: '5px',
-                display: 'inline-block',
-                marginRight: '50px',
-                marginLeft:'50px'
-              }}
-            >
-              <h2>{project.title}</h2>
-              <div style={{ maxWidth: '480px', padding: '0 10px' }}>
-                {project.description.split(/\.(\s*|\n+)/).map((paragraph, index) => (
-                  <p style={{fontSize:'12px'}} key={index}>{paragraph}</p>
-                ))}
-              </div>
-            </div>
-          )}
+<>
+  {project && (
+    <div
+      className="project-container"
+      style={{
+        width: '500px',
+        height: '300px',
+        textAlign: 'center',
+        backgroundColor: '#e4e6ea',
+        padding: '10px',
+        borderRadius: '5px',
+        display: 'inline-block',
+        marginRight: '50px',
+        marginLeft:'50px'
+      }}
+    >
+      <h2>{project.title}</h2>
+      <div className="description-container" style={{ maxWidth: '480px', padding: '0 10px', wordWrap:'break-word' }}>
+        {project.description.split(/\.(\s*|\n+)/).map((paragraph, index) => (
+          <p style={{ fontSize:'12px' }} key={index}>{paragraph}</p>
+        ))}
+      </div>
+    </div>
+  )}
+
           {images && images.length > 0 ? ( // Verifica si images está definido antes de usarlo
             images.map((imageId, index) => (
               <div

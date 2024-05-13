@@ -1,0 +1,38 @@
+
+@media (min-width:909px){
+    .section-home{
+        position: relative;
+        width:max-content;
+        top: -516px;
+        left: 650px;
+    }
+  .photo-home{
+    width: max-content;
+    margin: auto;
+    margin-right: 50px;
+  }
+  .front-page{
+    width: 500px;
+    height: 300px;
+    margin-top: 203px;
+  }
+  }
+  @media (max-width:409px){
+    .section-home{
+        position: relative;
+        width:100%;
+        top: 0px;
+        left: 0px;
+    }
+  .photo-home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .front-page{
+    width: max-content;
+    height: 250px;
+    width: 100%;
+  }
+  }

@@ -1,5 +1,5 @@
 import React from "react";
-
+import './workshops.css'
 function Workshops({ workshop }) {
     // Verifica si workshop está definido antes de acceder a sus propiedades
     if (!workshop) {
@@ -7,11 +7,11 @@ function Workshops({ workshop }) {
     }
 
     return (
-        <div style={{width:'max-content', margin:'auto', marginRight:'50px'}}>
+        <div className="container-workshop">
             <h2>{workshop.title}</h2>
-            <div style={{maxWidth:'300px'}}>
+            <div>
             {workshop.levels && workshop.levels.map((level, index) => (
-                <p style={{marginRight:'0px',overflowWrap: 'break-word'}} key={index}>
+                <p  key={index}>
                     <strong>Nivel {index + 1}:</strong> {level}
                 </p>
             ))}
