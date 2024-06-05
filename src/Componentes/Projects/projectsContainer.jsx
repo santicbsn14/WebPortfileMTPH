@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getProjectByNav } from '../../client';
 import Project from './project';
-import Loader from '../Loader/loader'; // Importa el componente Loader
+import Loader from '../Loader/loader';
 
 const ProjectsContainer = () => {
   const { title } = useParams();
@@ -22,6 +22,7 @@ const ProjectsContainer = () => {
   const [isDragging, setIsDragging] = useState(false);
   const [currentX, setCurrentX] = useState(0);
   const [prevX, setPrevX] = useState(0);
+  const [touchStartX, setTouchStartX] = useState(0);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const carouselRef = useRef(null);
 
@@ -51,25 +52,43 @@ const ProjectsContainer = () => {
     setIsDragging(false);
   };
 
+  const handleTouchStart = (e) => {
+    setIsDragging(true);
+    setTouchStartX(e.touches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    if (!isDragging) return;
+    const newX = touchStartX - e.touches[0].clientX;
+    setCurrentX((prevState) => prevState - newX);
+    setTouchStartX(e.touches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    setIsDragging(false);
+  };
+
   return (
     <div
       className="container"
       style={{
-        width: windowWidth - 50, // Ancho fijo basado en el ancho de la ventana
-        height: '400px', // Altura fija según tus necesidades
-        position: 'fixed', // Posición fija
-        top: '70%', // Centrado verticalmente
-        left: '80%', // Centrado horizontalmente
-        transform: 'translate(-50%, -50%)', // Ajuste para el centrado
-        overflow: 'hidden', // Ocultar desbordamiento
+        width: windowWidth - 50,
+        height: '400px',
+        position: 'fixed',
+        top: '70%',
+        left: '80%',
+        transform: 'translate(-50%, -50%)',
+        overflow: 'hidden',
       }}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
       ref={carouselRef}
     >
-      {/* Mostrar el Loader si isLoading es true */}
       {isLoading ? <Loader /> : <Project project={project} />}
     </div>
   );
