@@ -1,6 +1,7 @@
 import React,{useState, useEffect}  from "react";
-import { useLocation, useParams } from "react-router-dom";
-import { urlFor, getWorkshopByNav } from '../../client';
+import { useParams } from "react-router-dom";
+import { getWorkshopByNav } from '../../client';
+import './workshops.css'
 import Loader from '../Loader/loader';
 import Workshops from "./workshops";
 
@@ -24,9 +25,8 @@ function WorkshopsContainer(){
   }, [title]);
   
   return(
-    <div style={{width:'max-content', position:'relative', right:'0px', top:'-290px', left:'650px'}}>
+    <div className="container-workshops"  style={{width:'max-content', position:'relative', top:'-290px', left:'650px'}}>
       {isLoading ? <Loader></Loader> : <Workshops workshop={workshop}/> }
-      
     </div>
   )
 }

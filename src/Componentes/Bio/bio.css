@@ -1,0 +1,18 @@
+.container-bio{
+    width: 'max-content';
+    position: 'relative';
+    right: '0px';
+    top: '-538px';
+    left: '300px';
+}
+.container-bio-div{
+    width: 'max-content';
+     margin: 'auto';
+     margin-right: '50px';
+     margin-top: '290px';
+}
+p{
+    width: '800px';
+    font-size: '15px';
+    color: 'black';
+}

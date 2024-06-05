@@ -18,22 +18,22 @@ function Nav() {
   }, []);
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', width: 'max-content', marginLeft:'0px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', width: '238px', marginLeft:'0px' }}>
       <img src="https://i.postimg.cc/DzZt49VG/Imagen-de-Whats-App-2024-04-16-a-las-12-13-01-09b890a6.jpg" alt="" style={{ width: '270px', height: '270px', padding: '0px' }} />
-      <nav className=" navbar navbar-expand-lg " style={{ marginLeft: '0', width: 'max-content' }}>
-        <section className="container-fluid">
+      <nav className=" navbar navbar-expand-lg " style={{ marginLeft: '0' }}>
+        <section className="container-fluid" style={{width: '238px'}}>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav row" style={{ width:'max-content'}} >
+            <ul className="navbar-nav row" style={{ width:'238px'}} >
               <div className="col-lg-12">
-                <li className="nav-item" style={{ width:'max-content'}}>
+                <li className="nav-item" style={{ width:'238px'}}>
                   <Link to='/' className="nav-link" >Home</Link>
                 </li>
               </div>
               <div className="col-lg-12">
-                <li className="nav-item" style={{ width:'max-content'}}>
+                <li className="nav-item" style={{ width:'238px'}}>
                   <Link to='/workshops' className="nav-link">Workshops</Link>
                   {isWorkshopsRoute && (
                     <div className="submenuWorkshops">
@@ -47,7 +47,7 @@ function Nav() {
                 </li>
               </div>
               <div className="col-lg-12">
-                <li className="nav-item" style={{ width:'max-content'}}>
+                <li className="nav-item" style={{ width:'238px'}}>
                   <Link to='/projects' className="nav-link" >Projects</Link>
                   {isProjectsRoute && (
                     <div className="submenu">
@@ -61,17 +61,17 @@ function Nav() {
                 </li>
               </div>
               <div className="col-lg-12">
-                <li className="nav-item" style={{ width:'max-content'}}>
+                <li className="nav-item" style={{ width:'238px'}}>
                   <Link to='/statement' className="nav-link" >Statement</Link>
                 </li>
               </div>
               <div className="col-lg-12">
-                <li className="nav-item" style={{ width:'max-content'}}>
+                <li className="nav-item" style={{ width:'238px'}}>
                   <Link to='/Bio' className="nav-link">Bio</Link>
                 </li>
               </div>
               <div className="col-lg-12">
-                <li className="nav-item" style={{ width:'max-content'}}>
+                <li className="nav-item" style={{ width:'238px'}}>
                   <Link to='/Contacto' className="nav-link">Contact</Link>
                 </li>
               </div>
