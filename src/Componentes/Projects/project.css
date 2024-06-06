@@ -43,7 +43,7 @@
           width: calc(100% - 50px) !important; /* Ajustar el ancho relativo */
           height: 400px !important; /* Mantener la altura fija */
           position: fixed !important;
-          top: 80% !important; /* Mantener el valor para la posición superior */
+          top: 70% !important; /* Mantener el valor para la posición superior */
           left: 50% !important; /* Ajustar la posición horizontal */
           transform: translate(-50%, -50%)  !important;
           overflow: hidden  !important;

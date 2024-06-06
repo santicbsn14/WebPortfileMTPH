@@ -17,6 +17,14 @@ function Nav() {
     getProjects().then(data => setProjects(data));
   }, []);
 
+  // Función para ocultar el submenú cuando se hace clic en un enlace
+  const handleSubmenuClick = () => {
+    const submenu = document.querySelector('.submenu');
+    if (submenu) {
+      submenu.classList.remove('active'); // Remueve la clase "active" del submenú
+    }
+  };
+
   return (
     <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', width: '238px', marginLeft:'0px' }}>
       <img src="https://i.postimg.cc/DzZt49VG/Imagen-de-Whats-App-2024-04-16-a-las-12-13-01-09b890a6.jpg" alt="" style={{ width: '270px', height: '270px', padding: '0px' }} />
@@ -29,17 +37,17 @@ function Nav() {
             <ul className="navbar-nav row" style={{ width:'238px'}} >
               <div className="col-lg-12">
                 <li className="nav-item" style={{ width:'238px'}}>
-                  <Link to='/' className="nav-link" >Home</Link>
+                  <Link to='/' className="nav-link" onClick={handleSubmenuClick}>Home</Link>
                 </li>
               </div>
               <div className="col-lg-12">
                 <li className="nav-item" style={{ width:'238px'}}>
-                  <Link to='/workshops' className="nav-link">Workshops</Link>
+                  <Link to='/workshops' className="nav-link" onClick={handleSubmenuClick}>Workshops</Link>
                   {isWorkshopsRoute && (
-                    <div className="submenuWorkshops">
+                    <div className="submenu">
                       <ul>
                         {workshops.map(workshop => (
-                          <li key={workshop.id}><Link to={`/workshops/${encodeURIComponent(workshop.title)}`} style={{color:'black'}}>{workshop.title}</Link></li>
+                          <li key={workshop.id}><Link to={`/workshops/${encodeURIComponent(workshop.title)}`} style={{color:'black'}} onClick={handleSubmenuClick}>{workshop.title}</Link></li>
                         ))}
                       </ul>
                     </div>
@@ -48,12 +56,12 @@ function Nav() {
               </div>
               <div className="col-lg-12">
                 <li className="nav-item" style={{ width:'238px'}}>
-                  <Link to='/projects' className="nav-link" >Projects</Link>
+                  <Link to='/projects' className="nav-link" onClick={handleSubmenuClick}>Projects</Link>
                   {isProjectsRoute && (
                     <div className="submenu">
                       <ul>
                         {projects.map(project => (
-                          <li key={project.id}><Link to={`/projects/${encodeURIComponent(project.title)}`} style={{color:'black'}}>{project.title}</Link></li>
+                          <li key={project.id}><Link to={`/projects/${encodeURIComponent(project.title)}`} style={{color:'black'}} onClick={handleSubmenuClick}>{project.title}</Link></li>
                         ))}
                       </ul>
                     </div>
@@ -62,17 +70,17 @@ function Nav() {
               </div>
               <div className="col-lg-12">
                 <li className="nav-item" style={{ width:'238px'}}>
-                  <Link to='/statement' className="nav-link" >Statement</Link>
+                  <Link to='/statement' className="nav-link" onClick={handleSubmenuClick}>Statement</Link>
                 </li>
               </div>
               <div className="col-lg-12">
                 <li className="nav-item" style={{ width:'238px'}}>
-                  <Link to='/Bio' className="nav-link">Bio</Link>
+                  <Link to='/Bio' className="nav-link" onClick={handleSubmenuClick}>Bio</Link>
                 </li>
               </div>
               <div className="col-lg-12">
                 <li className="nav-item" style={{ width:'238px'}}>
-                  <Link to='/Contacto' className="nav-link">Contact</Link>
+                  <Link to='/Contacto' className="nav-link" onClick={handleSubmenuClick}>Contact</Link>
                 </li>
               </div>
             </ul>
