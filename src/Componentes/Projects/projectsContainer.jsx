@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getProjectByNav } from '../../client';
+import './project.css'
 import Project from './project';
 import Loader from '../Loader/loader';
 
@@ -70,7 +71,7 @@ const ProjectsContainer = () => {
 
   return (
     <div
-      className="container"
+      className="container container-projects"
       style={{
         width: windowWidth - 50,
         height: '400px',

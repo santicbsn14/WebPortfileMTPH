@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { urlFor } from '../../client';
 import Loader from '../Loader/loader';
-
+import './project.css'
 function Project({ project }) {
   const [isLoading, setIsLoading] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
@@ -51,11 +51,11 @@ function Project({ project }) {
   };
 
   const images = project.imagenes;
-  console.log(images);
+  
 
   return (
     <div
-      className="container"
+      className="container project-unit"
       style={{
         width: '100%',
         height: '400px',
@@ -90,22 +90,11 @@ function Project({ project }) {
             {project && (
               <div
                 className="project-container"
-                style={{
-                  width: '500px',
-                  height: '300px',
-                  textAlign: 'center',
-                  backgroundColor: '#e4e6ea',
-                  padding: '10px',
-                  borderRadius: '5px',
-                  display: 'inline-block',
-                  marginRight: '50px',
-                  marginLeft: '50px',
-                }}
               >
-                <h2>{project.title}</h2>
-                <div className="description-container" style={{ maxWidth: '480px', padding: '0 10px', wordWrap: 'break-word' }}>
+                <h2 style={{textAlign:'center'}}>{project.title}</h2>
+                <div className="description-container" >
                   {project.description.split(/\.(\s*|\n+)/).map((paragraph, index) => (
-                    <p style={{ fontSize: '12px' }} key={index}>{paragraph}</p>
+                    <p style={{ fontSize: '12px', textAlign:'center' }} key={index}>{paragraph}</p>
                   ))}
                 </div>
               </div>
@@ -124,8 +113,8 @@ function Project({ project }) {
                 >
                   <img
                     src={urlFor(imageId)}
-                    alt=""
-                    style={{ width: '500px', height: '300px' }}
+                    alt="Imagenes-projects"
+                    className='image-project'
                     draggable="false"
                     onContextMenu={handleContextMenu}
                   />

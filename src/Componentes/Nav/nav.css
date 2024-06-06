@@ -87,8 +87,8 @@
   }
 
   
-  @media (max-width:409px){
+  @media (max-width:600px){
   .navbar-toggler{
-    margin-top: -130px;
+    margin-top: -150px !important;
   }
   }
