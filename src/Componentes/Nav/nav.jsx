@@ -3,7 +3,7 @@ import './nav.css'
 import { Link, useLocation } from 'react-router-dom';
 import { getWorkshops, getProjects } from "../../client";
 
-function Nav() {
+function Nav({ isMenuOpen, toggleMenu }) {
   const location = useLocation();
   const isProjectsRoute = location.pathname === '/projects';
   const isWorkshopsRoute = location.pathname === '/workshops';
@@ -23,17 +23,18 @@ function Nav() {
     if (submenu) {
       submenu.classList.remove('active'); // Remueve la clase "active" del submenú
     }
+    toggleMenu(); // Cierra el menú cuando se hace clic en un enlace
   };
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', width: '238px', marginLeft:'0px' }}>
       <img src="https://i.postimg.cc/DzZt49VG/Imagen-de-Whats-App-2024-04-16-a-las-12-13-01-09b890a6.jpg" alt="" style={{ width: '270px', height: '270px', padding: '0px' }} />
-      <nav className=" navbar navbar-expand-lg " style={{ marginLeft: '0' }}>
+      <nav className="navbar navbar-expand-lg" style={{ marginLeft: '0' }}>
         <section className="container-fluid" style={{width: '238px'}}>
-          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <button className="navbar-toggler" type="button" onClick={toggleMenu} aria-controls="navbarSupportedContent" aria-expanded={isMenuOpen} aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <div className={`collapse navbar-collapse ${isMenuOpen ? 'show' : ''}`} id="navbarSupportedContent">
             <ul className="navbar-nav row" style={{ width:'238px'}} >
               <div className="col-lg-12">
                 <li className="nav-item" style={{ width:'238px'}}>
