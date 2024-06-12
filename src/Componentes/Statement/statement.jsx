@@ -1,5 +1,5 @@
 import React  from "react";
-
+import './statement.css'
 
 
 
@@ -8,7 +8,7 @@ function Statement(){
  
   
   return(
-<section style={{ width: 'max-content', position: 'relative', right: '0px', top: '-538px', left: '300px' }}>
+<section className="container-statement" style={{ width: 'max-content', position: 'relative', right: '0px', top: '-538px', left: '300px' }}>
   <div style={{ width: 'max-content', margin: 'auto', marginRight: '50px', marginTop: '290px' }}>
     <p style={{ width: '800px', fontSize: '15px', color: 'black' }}>
     Mi obra se sumerge en la esencia de la identidad femenina mediante la fusión de la fotografía

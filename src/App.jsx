@@ -6,7 +6,7 @@ import ProjectsContainer from './Componentes/Projects/projectsContainer'
 import Statement from './Componentes/Statement/statement'
 import Bio from './Componentes/Bio/bio'
 import Nav from './Componentes/Nav/nav'
-import Contact from './Componentes/contact'
+import Contact from './Componentes/Contact/contact'
 import WorkshopsContainer from './Componentes/Workshops/workshopsContainer'
 
 function App() {

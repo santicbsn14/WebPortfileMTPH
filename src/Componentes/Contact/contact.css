@@ -1,10 +1,12 @@
 
 @media (max-width:600px){
-    .container-bio{
+    .container-contact{
         margin: auto !important;
         margin-top: -55px !important;
         width: 90% !important;
     }
-
+    .redes-contact{
+       display: none !important;
+    }
 
 }
