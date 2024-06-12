@@ -17,7 +17,7 @@
     margin-top: 203px;
   }
   }
-  @media (max-width:409px){
+  @media (max-width:600px){
     .section-home{
         position: relative;
         width:100%;

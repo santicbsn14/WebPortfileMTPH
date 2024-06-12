@@ -4,7 +4,12 @@
         margin: auto !important;
         margin-top: -55px !important;
         width: 90% !important;
+        position: relative;
+        top: 0px !important;
+        left: 0px !important;
     }
-
+    .div-bio{
+        width: 100%;
+    }
 
 }
