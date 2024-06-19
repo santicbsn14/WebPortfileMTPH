@@ -1,15 +1,19 @@
-
 @media (max-width:600px){
     .container-bio{
-        margin: auto !important;
-        margin-top: -55px !important;
-        width: 90% !important;
-        position: relative;
+        position: relative !important;
         top: 0px !important;
         left: 0px !important;
+        width: 100% !important;
+        margin-top: -50px !important;
     }
     .div-bio{
-        width: 100%;
+        width: 100% !important;
+        margin-top: 0px !important; 
     }
-
+    p{
+        margin-top: 0px;
+        font-size: 15px !important;
+        width: 100% !important;
+        padding: 8px;
+    }
 }
