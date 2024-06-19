@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getProjectByNav } from '../../client';
-import './project.css'
+import './project.css';
 import Project from './project';
 import Loader from '../Loader/loader';
 
@@ -90,7 +90,7 @@ const ProjectsContainer = () => {
       onTouchEnd={handleTouchEnd}
       ref={carouselRef}
     >
-      {isLoading ? <Loader /> : <Project project={project} />}
+      {isLoading ? <Loader /> : <Project project={project} currentX={currentX} />}
     </div>
   );
 };
