@@ -12,7 +12,7 @@
         overflow-wrap: break-word;
     }
   }
-  @media (max-width:409px){
+  @media (max-width:600px){
     .container-workshops{
         position: relative !important;
         left: 0px !important;

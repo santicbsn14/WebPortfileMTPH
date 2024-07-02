@@ -5,8 +5,6 @@
   width: 100%;
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -25,31 +23,12 @@ a:hover {
 body {
   margin: 0;
   padding: 0;
-  place-items: center;
   min-width: 320px;
   width: 100%;
-  height: 100vh;
-  background-color: #e4e6ea;
-}
-body::before,
-body::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
+  min-height: 100vh;
   background: linear-gradient(to top left, #828282 0%, #e4e6ea 50%);
-  z-index: -1; /* Para enviar los seudoelementos detrás del contenido */
+  background-attachment: fixed;
+  overflow-x: hidden; /* Evita el desplazamiento horizontal */
+  overflow-y: auto; /* Permite el desplazamiento vertical */
+  position: relative;
 }
-
-body::before {
-  top: 0;
-  right: 0;
-  clip-path: polygon(0 0, 100% 0, 100% 100%); /* Triángulo superior derecho */
-}
-
-body::after {
-  bottom: 0;
-  left: 0;
-  clip-path: polygon(0 0, 0 100%, 100% 100%); /* Triángulo inferior izquierdo */
-}
-

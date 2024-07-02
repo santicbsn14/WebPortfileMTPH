@@ -1,29 +1,35 @@
-import React, { useState, useEffect } from "react";
-import './nav.css'
+import React, { useState, useEffect } from 'react';
+import './nav.css';
 import { Link, useLocation } from 'react-router-dom';
-import { getWorkshops, getProjects } from "../../client";
+import { getWorkshops, getProjects } from '../../client';
 
-function Nav({ isMenuOpen, toggleMenu }) {
+function Nav({ isMenuOpen, toggleMenu, closeMenu }) {
   const location = useLocation();
-  const isProjectsRoute = location.pathname === '/projects';
-  const isWorkshopsRoute = location.pathname === '/workshops';
+  const isProjectsRoute = location.pathname.startsWith('/projects');
+  const isWorkshopsRoute = location.pathname.startsWith('/workshops');
 
   const [workshops, setWorkshops] = useState([]);
   const [projects, setProjects] = useState([]);
+  const [activeSubMenu, setActiveSubMenu] = useState(null);
 
   useEffect(() => {
-    // Obtener workshops y proyectos al montar el componente
     getWorkshops().then(data => setWorkshops(data));
     getProjects().then(data => setProjects(data));
   }, []);
 
-  // Función para ocultar el submenú cuando se hace clic en un enlace
-  const handleSubmenuClick = () => {
-    const submenu = document.querySelector('.submenu');
-    if (submenu) {
-      submenu.classList.remove('active'); // Remueve la clase "active" del submenú
+  useEffect(() => {
+    // Cerrar submenús cuando cambie la ruta
+    if (!isProjectsRoute && !isWorkshopsRoute) {
+      setActiveSubMenu(null);
     }
-    toggleMenu(); // Cierra el menú cuando se hace clic en un enlace
+  }, [location.pathname, isProjectsRoute, isWorkshopsRoute]);
+  
+  const handleSubmenuClick = (menuType) => {
+    setActiveSubMenu(menuType === activeSubMenu ? null : menuType);
+  };
+
+  const handleLinkClick = () => {
+    closeMenu();
   };
 
   return (
@@ -38,17 +44,17 @@ function Nav({ isMenuOpen, toggleMenu }) {
             <ul className="navbar-nav row" style={{ width:'238px'}} >
               <div className="col-lg-12">
                 <li className="nav-item" style={{ width:'238px'}}>
-                  <Link to='/' className="nav-link" onClick={handleSubmenuClick}>Home</Link>
+                  <Link to='/' className="nav-link" onClick={handleLinkClick}>Home</Link>
                 </li>
               </div>
               <div className="col-lg-12">
                 <li className="nav-item" style={{ width:'238px'}}>
-                  <Link to='/workshops' className="nav-link" onClick={handleSubmenuClick}>Workshops</Link>
-                  {isWorkshopsRoute && (
+                  <span className="nav-link" onClick={() => handleSubmenuClick('workshops')}>Workshops</span>
+                  {(activeSubMenu === 'workshops' || isWorkshopsRoute) && (
                     <div className="submenu">
                       <ul>
                         {workshops.map(workshop => (
-                          <li key={workshop.id}><Link to={`/workshops/${encodeURIComponent(workshop.title)}`} style={{color:'black'}} onClick={handleSubmenuClick}>{workshop.title}</Link></li>
+                          <li key={workshop.id}><Link to={`/workshops/${encodeURIComponent(workshop.title)}`} onClick={handleLinkClick}>{workshop.title}</Link></li>
                         ))}
                       </ul>
                     </div>
@@ -57,12 +63,12 @@ function Nav({ isMenuOpen, toggleMenu }) {
               </div>
               <div className="col-lg-12">
                 <li className="nav-item" style={{ width:'238px'}}>
-                  <Link to='/projects' className="nav-link" onClick={handleSubmenuClick}>Projects</Link>
-                  {isProjectsRoute && (
+                  <span className="nav-link" onClick={() => handleSubmenuClick('projects')}>Projects</span>
+                  {(activeSubMenu === 'projects' || isProjectsRoute) && (
                     <div className="submenu">
                       <ul>
                         {projects.map(project => (
-                          <li key={project.id}><Link to={`/projects/${encodeURIComponent(project.title)}`} style={{color:'black'}} onClick={handleSubmenuClick}>{project.title}</Link></li>
+                          <li key={project.id}><Link to={`/projects/${encodeURIComponent(project.title)}`} onClick={handleLinkClick}>{project.title}</Link></li>
                         ))}
                       </ul>
                     </div>
@@ -71,17 +77,17 @@ function Nav({ isMenuOpen, toggleMenu }) {
               </div>
               <div className="col-lg-12">
                 <li className="nav-item" style={{ width:'238px'}}>
-                  <Link to='/statement' className="nav-link" onClick={handleSubmenuClick}>Statement</Link>
+                  <Link to='/statement' className="nav-link" onClick={handleLinkClick}>Statement</Link>
                 </li>
               </div>
               <div className="col-lg-12">
                 <li className="nav-item" style={{ width:'238px'}}>
-                  <Link to='/Bio' className="nav-link" onClick={handleSubmenuClick}>Bio</Link>
+                  <Link to='/bio' className="nav-link" onClick={handleLinkClick}>Bio</Link>
                 </li>
               </div>
               <div className="col-lg-12">
                 <li className="nav-item" style={{ width:'238px'}}>
-                  <Link to='/Contacto' className="nav-link" onClick={handleSubmenuClick}>Contact</Link>
+                  <Link to='/contacto' className="nav-link" onClick={handleLinkClick}>Contact</Link>
                 </li>
               </div>
             </ul>

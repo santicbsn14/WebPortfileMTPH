@@ -10,11 +10,11 @@ function Workshops({ workshop }) {
         <div className="container-workshop">
             <h2>{workshop.title}</h2>
             <div>
-            {workshop.levels && workshop.levels.map((level, index) => (
-                <p  key={index}>
-                    <strong>Nivel {index + 1}:</strong> {level}
-                </p>
-            ))}
+                {workshop.levels && workshop.levels.map((level, index) => (
+                    <p key={index}>
+                        <strong>Nivel {index + 1}:</strong> {level}
+                    </p>
+                ))}
             </div>
         </div>
     );

@@ -3,7 +3,7 @@ import { urlFor } from '../../client';
 import Loader from '../Loader/loader';
 import './project.css';
 
-function Project({ project, currentX }) {
+function Project({ project , currentX }) {
   const images = project?.imagenes;
 
   const handleContextMenu = (e) => {
@@ -55,6 +55,7 @@ function Project({ project, currentX }) {
                 >
                   <img
                     src={urlFor(imageId)}
+                    loading='lazy'
                     alt="Imagenes-projects"
                     className="image-project"
                     draggable="false"
