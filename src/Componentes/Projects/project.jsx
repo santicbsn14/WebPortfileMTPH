@@ -35,12 +35,11 @@ function Project({ project , currentX }) {
         {project ? (
           <>
             <div className="project-container">
-              <h2 style={{ textAlign: 'center' }}>{project.title}</h2>
+              <h3 style={{ marginTop:'-100px' }}>{project.title}</h3>
               <div className="description-container">
-                {project.description.split(/\.(\s*|\n+)/).map((paragraph, index) => (
-                  <p style={{ fontSize: '12px', textAlign: 'center' }} key={index}>{paragraph}</p>
-                ))}
+                <p>{project.description}</p>
               </div>
+              <span>Desliza para ver más imagenes{'>>'}</span>
             </div>
             {images && images.length > 0 ? (
               images.map((imageId, index) => (
